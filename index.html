@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Sensée Home-Agent Network" />
+    <meta name="author" content="LR" />
+    <title>Country Select</title>
+    <link rel="icon" href="//sensee.co.uk/favicon.ico" />
+    <style type="text/css">html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}nav ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{background-color:#ff9;color:#000;text-decoration:none}mark{background-color:#ff9;color:#000;font-style:italic;font-weight:700}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}table{border-collapse:collapse;border-spacing:0}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}.cf:before,.cf:after{content:" ";display:table}.cf:after{clear:both}.cf{*zoom:1}</style>
+    <link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.min.css" rel="stylesheet" />
+    <style type="text/css">
+        .select-wrapper {
+            width:300px;
+            padding:20px;
+            margin:50px auto;
+        }
+    </style>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // Countries Array
+            var country_list_europe = ["Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Georgia", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Kosovo", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Macedonia", "Malta", "Moldova", "Monaco", "Montenegro", "The Netherlands", "Norway", "Poland", "Portugal", "Romania", "Russia", "San Marino", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine", "United Kingdom", "Vatican City"];
+
+            // Populate country select list:
+            var c = country_list_europe;
+            var cHTML = '';
+            c.forEach(function (country) { 
+                if (country == 'Spain') {
+                    cHTML += '<option value="' + country + '" selected>' + country + '</option>';
+                } else {
+                    cHTML += '<option value="' + country + '">' + country + '</option>';
+                }
+            });
+
+            // Add the options to the Select control:
+            $('#country').html(cHTML);
+        });
+    </script>
+    <!--###  LEGACY IE OVERRIDES  ##########################################-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv-printshiv.min.js"></script>
+    <![endif]-->
+    <!--###  END LEGACY IE OVERRIDES  ######################################-->
+</head>
+<body>
+
+    <!--===== PAGE WARNINGS ======-->
+    <div id="pageWarnings">
+        <!-- Old Browser -->
+        <!--[if lt IE 9]>
+            <div class="alert alert-warning warning-old-browser">
+                <strong>Warning</strong>
+                We have detected you are using an old web browser.<br />
+                This site is best viewed in any up to date modern browser but may not function correctly on older browsers.<br />
+                Please return using a modern browser.
+            </div>
+        <![endif]-->
+        <!-- No Javascript -->
+        <div id="warning-no-js" class="alert alert-danger" role="alert">
+            <strong>Warning</strong> your browser currently does not
+            have JavaScript enabled. To view this website please
+            enable JavaScript.
+        </div>
+        <script>
+            document.getElementById("warning-no-js").style.display = "none";
+        </script>
+    </div>
+    <!--===== END PAGE WARNINGS ======-->    
+
+
+    <div class="select-wrapper">
+        <label>&nbsp;&nbsp;Country you will be working from:</label>
+        <select id="country" class="form-control input-lg">
+            <!-- Content added via jquery -->
+        </select>
+    </div>
+
+</body>
+</html>
